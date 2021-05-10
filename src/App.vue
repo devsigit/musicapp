@@ -1,32 +1,61 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      color="primary_bg"
+      dark
+      dense
+    >
+      <div class="d-flex align-center">
+       <v-toolbar-title>Ronix</v-toolbar-title>
+      </div>
+
+      <v-spacer></v-spacer>
+   
+     <v-btn icon>
+        <router-link  to="/" tag="icon"><v-icon>mdi-home</v-icon></router-link>
+      </v-btn>
+    
+      <v-btn icon>
+         <router-link  to="/songs" tag="icon"><v-icon>mdi-playlist-music</v-icon></router-link>
+      </v-btn>
+    
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-account-circle</v-icon>
+      </v-btn>
+
+    </v-app-bar>
+
+    <v-main>
+      <router-view></router-view>
+    </v-main>
+  </v-app>
 </template>
+<script>
+export default {
+  name: 'App',
+  components: {
+  },
+  data: () => ({
+        links: [
+        'Home',
+        'About Us',
+        'Team',
+        'Services',
+        'Blog',
+        'Contact Us',
+      ],
+  }),
+};
+</script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+<style lang="css">
+.primary_bg{
+  background-color:#9921e8;
+  background-image:linear-gradient(315deg, #9921e8 0%, #5f72be 74%);
 }
 </style>
